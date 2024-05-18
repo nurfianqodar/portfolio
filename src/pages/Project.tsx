@@ -1,0 +1,67 @@
+// src/components/GitHubProjects.tsx
+
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+interface Project {
+  name: string;
+  html_url: string;
+  created_at: Date;
+  language: string;
+  owner: {
+    avatar_url: string;
+  };
+}
+
+const ProjectPage: React.FC = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await axios.get<Project[]>(
+          "https://api.github.com/users/nurfianqodar/repos"
+        );
+        setProjects(response.data);
+        console.log(response);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  return (
+    <section className='flex w-full flex-col mx-auto items-center gap-y-4'>
+      <h1 className='text-2xl font-bold'>GitHub Projects</h1>
+
+      <div className='flex w-full flex-wrap gap-5 items-center justify-center'>
+        {projects.map((project, index) => (
+          <a
+            key={index}
+            className='flex w-full border pl-5 px-2 py-2 rounded-xl items-center gap-2 max-w-md'
+            href={project.html_url}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <img
+              src={project.owner.avatar_url}
+              alt='avatar url'
+              className='rounded-full w-10'
+            />
+            <div className='flex flex-col'>
+              <span className='font-semibold'>{project.name}</span>
+              <span className='font-light text-sm'>{`Language : ${project.language}`}</span>
+              <span className='font-light text-sm'>{`created: ${new Date(
+                project.created_at
+              ).toLocaleDateString()}`}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default ProjectPage;
