@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { FiGithub } from "react-icons/fi";
 
 interface Project {
   name: string;
@@ -23,7 +24,6 @@ const ProjectPage: React.FC = () => {
           "https://api.github.com/users/nurfianqodar/repos"
         );
         setProjects(response.data);
-        console.log(response);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -34,7 +34,15 @@ const ProjectPage: React.FC = () => {
 
   return (
     <section className='flex w-full flex-col mx-auto items-center gap-y-4'>
-      <h1 className='text-2xl font-bold'>GitHub Projects</h1>
+      <h1 className='text-2xl font-bold flex items-center'>
+        My Projects on
+        <a
+          className='flex items-center ml-2'
+          href='https://github.com/nurfianqodar/'
+        >
+          GitHub <FiGithub />
+        </a>
+      </h1>
 
       <div className='flex w-full flex-wrap gap-5 items-center justify-center'>
         {projects.map((project, index) => (
@@ -51,9 +59,9 @@ const ProjectPage: React.FC = () => {
               className='rounded-full w-10'
             />
             <div className='flex flex-col'>
-              <span className='font-semibold'>{project.name}</span>
-              <span className='font-light text-sm'>{`Language : ${project.language}`}</span>
-              <span className='font-light text-sm'>{`created: ${new Date(
+              <span className='font-semibold text-lg'>{project.name}</span>
+              <span className='font-light text-xs'>{`Language : ${project.language}`}</span>
+              <span className='font-light text-xs'>{`created: ${new Date(
                 project.created_at
               ).toLocaleDateString()}`}</span>
             </div>
