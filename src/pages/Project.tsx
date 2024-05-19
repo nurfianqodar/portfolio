@@ -49,7 +49,7 @@ const ProjectPage: React.FC = () => {
           {projects.map((project, index) => (
             <a
               key={index}
-              className='flex w-full border pl-5 px-2 py-2 rounded-xl items-center gap-2 max-w-md'
+              className='flex w-full border pl-5 px-2 py-2 rounded-xl items-center gap-2 max-w-sm'
               href={project.html_url}
               target='_blank'
               rel='noopener noreferrer'
