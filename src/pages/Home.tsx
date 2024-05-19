@@ -11,6 +11,7 @@ import {
 } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import myImg from "/myImg.jpeg";
+import myCV from "/Profile.pdf";
 
 const socialLinks = [
   {
@@ -91,15 +92,10 @@ const HomePage = () => {
           and passion for programming.
         </h2>
         <div className='flex font-semibold gap-x-5 py-2'>
-          <Link
-            to={
-              "https://www.linkedin.com/ambry/?x-li-ambry-ep=AQKABR2HWCkt6QAAAY-RE2VJNGogKPP7m3Pmw7S7NU8KzvsFPrfzSMTVnxqy9ycuFcAbM-SAYeQ9kGut4c8BCyZbecnhL0DvF2yoNodMNtH7tjcyVMbLfnFxkX7Wuat9vYU57evHPpEGOB5oZrSyqxUyWqnM2fQwhmIIjNmENrXzj7fciHlyOall2q-g3ZtvCqzkO0ow9bTjkOYEG3XdMbnxC91xAFedTKnHUH2Bn9gW28xji4yvYQiX-b0-fqEKj_uJBu8-Z9mqiDiBVckkN05E6JP-QCueFjt9tieHHFv4ZaDcT_Iq8p5leA5bnq0FgSFAeLQk91k2E-gFFISxpR5qdnTcxya69vscv76aPP1k1IGRSrWx7oLC0YQJNQZhP2f7yW6xdkKdkvyAwFkGkkFIlIfTo8HCz3qkdnipdMsJgM2z4kFtLBr-96q1F4e_SkH2o0UdmhzzN7eJYffd5e1CFLAYsE1ToTE4tkFL9lP4EG2Qj1TZ2baY6vOlLInnYOgEkVHqC8m3_gVDiRchgOxn53Zwmxpxao4L018I7eSgDZFrWOj_-OqdetD0kHHQM8NI0NE&x-ambry-um-filename=Profile.pdf"
-            }
-            className='flex underline underline-offset-3'
-          >
+          <a href={myCV} className='flex underline underline-offset-3'>
             My Resume
             <FaExternalLinkAlt className='text-xs font-light' />
-          </Link>
+          </a>
           <button
             onClick={() => {
               setOpenSocmed(!openSocmed);

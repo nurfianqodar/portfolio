@@ -35,18 +35,15 @@ const ProjectPage: React.FC = () => {
   return (
     <>
       <section className='flex w-full flex-col mx-auto items-center gap-y-4'>
-        <h1 className='text-2xl font-bold flex items-center mb-10'>
-          My Projects on
-          <a
-            className='flex items-center ml-2'
-            href='https://github.com/nurfianqodar/'
-          >
-            GitHub{" "}
-            <span className='ml-1'>
-              <FiGithub />
-            </span>
-          </a>
+        <h1 className='text-2xl font-bold flex items-center mb-5'>
+          My Projects
         </h1>
+        <a
+          className='flex items-center mb-5 text-xl'
+          href='https://github.com/nurfianqodar/'
+        >
+          On GitHub <FiGithub className='ml-2' />
+        </a>
 
         <div className='flex w-full flex-wrap gap-5 items-center justify-center'>
           {projects.map((project, index) => (
