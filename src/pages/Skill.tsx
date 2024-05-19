@@ -86,6 +86,12 @@ const ProgLang = (): React.ReactNode => {
 //
 const certificate: { name: string; url: string; thumbnail: string }[] = [
   {
+    name: "Cloud Practitioner Essentials (Belajar Dasar AWS Cloud)",
+    url: "https://www.dicoding.com/certificates/KEXL1896RXG2",
+    thumbnail:
+      "https://d17ivq9b7rppb3.cloudfront.net/original/academy/cloud_practitioner_essentials_belajar_dasar_aws_cloud_logo_230421133823.jpg",
+  },
+  {
     name: "Belajar Membuat Aplikasi Back-End untuk Pemula",
     url: "https://www.dicoding.com/certificates/GRX5O29EVP0M",
     thumbnail:
