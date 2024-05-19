@@ -7,15 +7,47 @@ import {
   FiGitlab,
   FiInstagram,
   FiLinkedin,
+  FiYoutube,
 } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import myImg from "/myImg.jpeg";
+
 const socialLinks = [
-  { to: "http://facebook.com", icon: <FiFacebook /> },
-  { to: "http://instagram.com", icon: <FiInstagram /> },
-  { to: "http://linkedin.com", icon: <FiLinkedin /> },
-  { to: "http://github.com", icon: <FiGithub /> },
-  { to: "http://gitlab.com", icon: <FiGitlab /> },
-  { to: "http://discord.com", icon: <FaDiscord /> },
+  {
+    to: "https://www.facebook.com/nurfian.qodar/",
+    icon: <FiFacebook className='text-[#0866FF]' />,
+    name: "Facebook",
+  },
+  {
+    to: "https://www.youtube.com/@Code_Fyn/",
+    icon: <FiYoutube className='text-[#FF0000]' />,
+    name: "YouTube",
+  },
+  {
+    to: "https://www.instagram.com/imfyn77/",
+    icon: <FiInstagram className='text-[#E4405F]' />,
+    name: "Instagram",
+  },
+  {
+    to: "https://linkedin.com/in/nurfian-qodar-36b448302/",
+    icon: <FiLinkedin className='text-[#0A66C2]' />,
+    name: "LinkedIn",
+  },
+  {
+    to: "https://github.com/nurfianqodar/",
+    icon: <FiGithub className='text-[#181717]' />,
+    name: "GitHub",
+  },
+  {
+    to: "http://gitlab.com/nurfianqodar/",
+    icon: <FiGitlab className='text-[#FC6D26]' />,
+    name: "GitLab",
+  },
+  {
+    to: "https://discord.com/users/imfynn77_",
+    icon: <FaDiscord className='text-[#5865F2]' />,
+    name: "Discord",
+  },
 ];
 
 const SocialLinks: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
@@ -23,17 +55,21 @@ const SocialLinks: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
     <div
       className={
         isOpen
-          ? `flex text-5xl gap-8 flex-wrap items-center justify-center`
+          ? `flex text-5xl gap-10 flex-wrap items-center justify-center`
           : `flex text-3xl gap-5 flex-wrap items-center justify-center`
       }
     >
       {socialLinks.map((link, index) => (
         <Link
+          target='_blank'
           key={index}
           to={link.to}
           className='hover:scale-125 transition duration-200'
         >
-          {link.icon}
+          <div className='flex flex-col items-center gap-y-2'>
+            <span>{link.icon}</span>
+            {isOpen && <span className='text-xl'>{link.name}</span>}
+          </div>
         </Link>
       ))}
     </div>
@@ -49,7 +85,7 @@ const HomePage = () => {
         <h1 className='flex flex-col text-3xl'>
           Hi Friend 👋 <span className='text-6xl'>I'm Nurfian Qodar</span>
         </h1>
-        <h2>
+        <h2 className='text-xl'>
           Agriculture Enthusiast and Coding Aficionao | Cultivating creativity
           in fields and code. Explore my portfolio, a fusion of love for farming
           and passion for programming.
@@ -90,16 +126,25 @@ const HomePage = () => {
             <AiFillCloseCircle />{" "}
           </button>
         )}
-        <h1 className='text-2xl mb-5 font-semibold'>Follow My Social Media</h1>
+        <h1 className='text-2xl mb-10 font-semibold'>Follow My Social Media</h1>
         <SocialLinks isOpen={openSocmed} />
       </section>
-      <section>
-        <h1 className='font-bold text-xl mb-5'>Hello There 😃</h1>
-        I'm <span className='font-semibold'>Nurfian Qodar</span> - Hailing from
-        the charming town of Ciamis. By day I'am a passionate agriculture
-        student nurturing seeds of knowledge. By night, I transform into a web
-        programming enthusiast, weaving digital landscapes. Join me on this
-        dynamic journey of growth and code.
+      <section className='flex flex-col items-center'>
+        <h1 className='font-bold text-2xl mb-5'>Hello There 😃</h1>
+        <div className='flex items-center justify-evenly gap-10 flex-wrap'>
+          <img
+            src={myImg}
+            alt='myImg.jpeg'
+            className='flex max-w-[250px] rounded-lg w-full'
+          />
+          <p className='text-xl max-w-sm'>
+            I'm <span className='font-semibold'>Nurfian Qodar</span> - Hailing
+            from the charming town of Ciamis. By day I'am a passionate
+            agriculture student nurturing seeds of knowledge. By night, I
+            transform into a web programming enthusiast, weaving digital
+            landscapes. Join me on this dynamic journey of growth and code.
+          </p>
+        </div>
       </section>
     </div>
   );

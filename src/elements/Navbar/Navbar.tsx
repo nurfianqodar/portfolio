@@ -1,11 +1,11 @@
-import { FiCode, FiHome } from "react-icons/fi";
-import { LiaListUlSolid } from "react-icons/lia";
+import { BiHome, BiStar } from "react-icons/bi";
+import { FiCode } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const navLinks = [
-  { name: "Home", to: "/", icon: <FiHome /> },
-  { name: "Projects", to: "/project", icon: <LiaListUlSolid /> },
-  { name: "Skills", to: "/skill", icon: <FiCode /> },
+  { name: "Home", to: "/", icon: <BiHome /> },
+  { name: "Projects", to: "/project", icon: <FiCode /> },
+  { name: "Skills", to: "/skill", icon: <BiStar /> },
 ];
 
 const Navigation = () => {
@@ -16,9 +16,12 @@ const Navigation = () => {
           key={index}
           to={link.to}
           title={link.name}
-          className='hover:scale-125 transition duration-200'
+          className='flex flex-col items-center group'
         >
-          {link.icon}
+          <span className='group-hover:scale-150 transition duration-200 '>
+            {link.icon}
+          </span>
+          <span className='text-xs'>{link.name}</span>
         </Link>
       ))}
     </nav>
@@ -27,7 +30,7 @@ const Navigation = () => {
 
 const Navbar = () => {
   return (
-    <header className='h-16 fixed left-0 right-0 top-0 flex items-center justify-center backdrop-blur-lg'>
+    <header className='h-16 fixed left-0 right-0 top-0 flex items-center justify-center backdrop-blur-lg shadow-sm'>
       <div className='container mx-auto my-auto flex items-center justify-between'>
         <div className='mx-auto w-full max-w-screen-lg flex justify-between items-center px-5'>
           <Link to={"/"} className='font-bold text-xl'>

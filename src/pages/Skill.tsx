@@ -16,43 +16,43 @@ const programmingLanguage: {
 }[] = [
   {
     name: "JavaSctipt",
-    logo: <BiLogoJavascript />,
-    link: "url",
+    logo: <BiLogoJavascript className='text-[#F7DF1E]' />,
+    link: "https://www.w3schools.com/js/",
   },
   {
     name: "TypeScript",
-    logo: <BiLogoTypescript />,
-    link: "",
+    logo: <BiLogoTypescript className='text-[#3178C6]' />,
+    link: "https://www.typescriptlang.org/",
   },
   {
     name: "Python",
-    logo: <BiLogoPython />,
-    link: "",
+    logo: <BiLogoPython className='text-[#3776AB]' />,
+    link: "https://www.python.org/",
   },
   {
     name: "React",
-    logo: <BiLogoReact />,
-    link: "",
+    logo: <BiLogoReact className='text-[#61DAFB]' />,
+    link: "https://react.dev/",
   },
   {
     name: "Express JS/TS",
-    logo: <SiExpress />,
-    link: "",
+    logo: <SiExpress className='text-[#000000]' />,
+    link: "https://expressjs.com/",
   },
   {
     name: "Redux",
-    logo: <SiRedux />,
-    link: "",
+    logo: <SiRedux className='text-[#764ABC]' />,
+    link: "https://redux.js.org/",
   },
   {
     name: "Hono",
-    logo: <SiHono />,
-    link: "",
+    logo: <SiHono className='text-[#E36002]' />,
+    link: "https://hono.dev/",
   },
   {
     name: "Nest JS",
-    logo: <SiNestjs />,
-    link: "",
+    logo: <SiNestjs className='text-[#E0234E]' />,
+    link: "https://nestjs.com/",
   },
 ];
 
@@ -64,9 +64,12 @@ const ProgLang = (): React.ReactNode => {
           <a
             key={index}
             href={link}
-            className='flex flex-col items-center justify-center gap-y-1'
+            target='_blank'
+            className='flex flex-col items-center justify-center gap-y-3 group'
           >
-            <span className='text-6xl'>{logo}</span>
+            <span className='text-6xl group-hover:scale-150 transition duration-200 relative'>
+              {logo}
+            </span>
             <span>{name}</span>
           </a>
         );
@@ -115,7 +118,7 @@ const Certifications = () => {
   useEffect(() => {
     open
       ? setCertificates(certificate)
-      : setCertificates(certificate.slice(0, 3));
+      : setCertificates(certificate.slice(0, 2));
   }, [open]);
   return (
     <div className='flex w-full justify-center gap-3 flex-wrap'>
@@ -146,9 +149,7 @@ const Certifications = () => {
         onClick={() => {
           setOpen(!open);
         }}
-        className={`${
-          open ? "" : "-translate-y-32"
-        } relative flex flex-col w-full h-32 items-center gap-y-3 py-5 backdrop-blur-sm`}
+        className={`relative flex flex-col w-full h-32 items-center gap-y-3 py-5 backdrop-blur-sm`}
       >
         <span>{open ? "Less" : "More"}</span>
         {open ? <BsArrowUpCircle /> : <BsArrowDownCircle />}
