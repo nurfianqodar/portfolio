@@ -55,7 +55,7 @@ const SocialLinks: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
     <div
       className={
         isOpen
-          ? `flex text-5xl gap-10 flex-wrap items-center justify-center`
+          ? `flex text-5xl gap-10 flex-wrap items-center justify-center px-5 lg:px-20`
           : `flex text-3xl gap-5 flex-wrap items-center justify-center`
       }
     >

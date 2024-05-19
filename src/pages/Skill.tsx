@@ -7,7 +7,7 @@ import {
   BiLogoTypescript,
 } from "react-icons/bi";
 import { BsArrowDownCircle, BsArrowUpCircle } from "react-icons/bs";
-import { SiExpress, SiHono, SiNestjs, SiRedux } from "react-icons/si";
+import { SiExpress, SiHono, SiMysql, SiNestjs, SiRedux } from "react-icons/si";
 
 const programmingLanguage: {
   name: string;
@@ -54,6 +54,11 @@ const programmingLanguage: {
     logo: <SiNestjs className='text-[#E0234E]' />,
     link: "https://nestjs.com/",
   },
+  {
+    name: "MySQL",
+    logo: <SiMysql className='text-[#4479A1]' />,
+    link: "https://www.mysql.com/",
+  },
 ];
 
 const ProgLang = (): React.ReactNode => {
@@ -67,10 +72,10 @@ const ProgLang = (): React.ReactNode => {
             target='_blank'
             className='flex flex-col items-center justify-center gap-y-3 group'
           >
-            <span className='text-6xl group-hover:scale-150 transition duration-200 relative'>
+            <span className='text-5xl lg:text-6xl group-hover:scale-150 transition duration-200'>
               {logo}
             </span>
-            <span>{name}</span>
+            <span className='text-sm'>{name}</span>
           </a>
         );
       })}
