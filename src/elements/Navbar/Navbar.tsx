@@ -1,4 +1,4 @@
-import { FiCode, FiHome, FiMail } from "react-icons/fi";
+import { FiCode, FiHome } from "react-icons/fi";
 import { LiaListUlSolid } from "react-icons/lia";
 import { Link } from "react-router-dom";
 
@@ -6,12 +6,11 @@ const navLinks = [
   { name: "Home", to: "/", icon: <FiHome /> },
   { name: "Projects", to: "/project", icon: <LiaListUlSolid /> },
   { name: "Skills", to: "/skill", icon: <FiCode /> },
-  { name: "Contact", to: "/contact", icon: <FiMail /> },
 ];
 
 const Navigation = () => {
   return (
-    <nav className='flex gap-5 text-2xl'>
+    <nav className='flex gap-10 text-xl'>
       {navLinks.map((link, index) => (
         <Link
           key={index}

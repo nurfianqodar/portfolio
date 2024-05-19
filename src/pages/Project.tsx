@@ -35,13 +35,16 @@ const ProjectPage: React.FC = () => {
   return (
     <>
       <section className='flex w-full flex-col mx-auto items-center gap-y-4'>
-        <h1 className='text-2xl font-bold flex items-center'>
+        <h1 className='text-2xl font-bold flex items-center mb-10'>
           My Projects on
           <a
             className='flex items-center ml-2'
             href='https://github.com/nurfianqodar/'
           >
-            GitHub <FiGithub />
+            GitHub{" "}
+            <span className='ml-1'>
+              <FiGithub />
+            </span>
           </a>
         </h1>
 
