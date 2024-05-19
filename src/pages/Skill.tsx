@@ -76,7 +76,7 @@ const ProgLang = (): React.ReactNode => {
 };
 
 //
-let certificate: { name: string; url: string; thumbnail: string }[] = [
+const certificate: { name: string; url: string; thumbnail: string }[] = [
   {
     name: "Belajar Membuat Aplikasi Back-End untuk Pemula",
     url: "https://www.dicoding.com/certificates/GRX5O29EVP0M",
@@ -125,14 +125,17 @@ const Certifications = () => {
             target='_blank'
             href={url}
             key={index}
-            className='flex gap-3 items-center p-3 border w-full max-w-md'
+            className='flex gap-3 items-center p-3 border w-full max-w-sm justify-between'
           >
-            <img
-              src={thumbnail}
-              alt={`${name} image`}
-              className='w-[80px] rounded-lg'
-            />
-            <span>{name}</span>
+            <div className='flex items-center gap-x-3'>
+              <img
+                src={thumbnail}
+                alt={`${name} image`}
+                className='w-[80px] rounded-lg'
+              />
+              <span>{name}</span>
+            </div>
+
             <span className='p-2 rounded-xl border'>
               <BiLinkExternal />
             </span>
@@ -144,8 +147,8 @@ const Certifications = () => {
           setOpen(!open);
         }}
         className={`${
-          open ? "" : "-translate-y-10"
-        } relative flex flex-col w-full items-center gap-y-3 py-5 backdrop-blur-sm `}
+          open ? "" : "-translate-y-32"
+        } relative flex flex-col w-full h-32 items-center gap-y-3 py-5 backdrop-blur-sm`}
       >
         <span>{open ? "Less" : "More"}</span>
         {open ? <BsArrowUpCircle /> : <BsArrowDownCircle />}
