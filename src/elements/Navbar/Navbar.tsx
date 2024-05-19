@@ -35,7 +35,7 @@ const Navigation = () => {
 
 const Navbar = () => {
   return (
-    <header className='h-16 fixed left-0 right-0 bottom-0 flex items-center justify-center bg-white/50 backdrop-blur-lg shadow-sm'>
+    <header className='h-16 fixed left-0 right-0 bottom-0 flex items-center justify-center bg-white/50 backdrop-blur-lg shadow-sm z-[99999]'>
       <div className='container mx-auto my-auto flex items-center justify-between'>
         <div className='mx-auto w-full max-w-screen-lg flex justify-center items-center px-5 text-slate-800'>
           <Navigation />
