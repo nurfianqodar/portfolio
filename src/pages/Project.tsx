@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FiGithub } from "react-icons/fi";
 import { SiYoutube } from "react-icons/si";
+const GOOGLE_KEY = "AIzaSyDclPztSYxViVIOOE1U5DAiJYopW11LAp4";
 
 interface Project {
   name: string;
@@ -18,6 +19,9 @@ interface Project {
 interface YouTubeVideoItem {
   id: {
     videoId: string;
+  };
+  snippet: {
+    title: string;
   };
 }
 
@@ -44,7 +48,7 @@ const GitHubProjects: React.FC = () => {
     const fetchYouTubeVideos = async () => {
       try {
         const response = await axios.get<YouTubeResponse>(
-          "https://www.googleapis.com/youtube/v3/search?order=date&maxResults=20&part=id&channelId=UC7VfdDrBeigCtMHprRngYDw&key=AIzaSyDq5SwRAS6qCmp-KQ2l7yKQW3JTn31T_FI"
+          `https://www.googleapis.com/youtube/v3/search?order=date&maxResults=6&part=id,snippet&channelId=UC7VfdDrBeigCtMHprRngYDw&key=${GOOGLE_KEY!}`
         );
         setYoutubeVideos(response.data.items);
       } catch (error) {
@@ -108,24 +112,42 @@ const YouTubeSection: React.FC<{ videos: YouTubeVideoItem[] }> = ({
   videos,
 }) => (
   <section className='flex items-center justify-center flex-col my-16'>
-    <h1 className='flex items-center mb-10'>
+    <h1 className='flex items-center mb-10 gap-x-2 text-xl font-bold'>
       My YouTube Channel <SiYoutube />
     </h1>
-    <div className='flex flex-wrap gap-5'>
+    <div className='flex flex-wrap gap-5 items-center justify-center'>
       {videos.map((video, index) => (
-        <YouTubeEmbed key={index} videoId={video.id.videoId} />
+        <YouTubeEmbed
+          key={index}
+          videoId={video.id.videoId}
+          title={video.snippet.title}
+        />
       ))}
     </div>
+    <a
+      href='https://youtube.com/@code_fyn?si=BfrsxjadDO2sup5o'
+      target='_blank'
+      className='flex flex-col items-center m-5 p-5 max-w-md border rounded-xl'
+    >
+      <p>More videos? Visit my youtube channel</p>
+      <SiYoutube className='text-5xl my-5' />
+    </a>
   </section>
 );
 
-const YouTubeEmbed: React.FC<{ videoId: string }> = ({ videoId }) => (
-  <iframe
-    allowFullScreen
-    src={`https://www.youtube-nocookie.com/embed/${videoId}`}
-    title={`YouTube video ${videoId}`}
-    className='w-full h-64'
-  ></iframe>
+const YouTubeEmbed: React.FC<{ videoId: string; title: string }> = ({
+  videoId,
+  title,
+}) => (
+  <div className='max-w-sm rounded-xl p-3 border'>
+    <iframe
+      allowFullScreen
+      src={`https://www.youtube-nocookie.com/embed/${videoId}`}
+      title={`YouTube video ${videoId}`}
+      className='max-w-sm rounded-xl border w-full'
+    ></iframe>
+    <h1 className=''>{title}</h1>
+  </div>
 );
 
 const MoreProjectsSection: React.FC = () => (
