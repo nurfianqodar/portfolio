@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FiGithub } from "react-icons/fi";
 import { SiYoutube } from "react-icons/si";
+import SubsButton from "../components/SubsButton";
 const GOOGLE_KEY = "AIzaSyDclPztSYxViVIOOE1U5DAiJYopW11LAp4";
 
 interface Project {
@@ -48,7 +49,7 @@ const GitHubProjects: React.FC = () => {
     const fetchYouTubeVideos = async () => {
       try {
         const response = await axios.get<YouTubeResponse>(
-          `https://www.googleapis.com/youtube/v3/search?order=date&maxResults=6&part=id,snippet&channelId=UC7VfdDrBeigCtMHprRngYDw&key=${GOOGLE_KEY!}`
+          `https://www.googleapis.com/youtube/v3/search?order=date&maxResults=6&part=id,snippet&channelId=UCVYMOFTNVhkMuMsy870U5Fw&key=${GOOGLE_KEY!}`
         );
         setYoutubeVideos(response.data.items);
       } catch (error) {
@@ -115,6 +116,7 @@ const YouTubeSection: React.FC<{ videos: YouTubeVideoItem[] }> = ({
     <h1 className='flex items-center mb-10 gap-x-2 text-xl font-bold'>
       My YouTube Channel <SiYoutube />
     </h1>
+    <SubsButton />
     <div className='flex flex-wrap gap-5 items-center justify-center'>
       {videos.map((video, index) => (
         <YouTubeEmbed
